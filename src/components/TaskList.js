@@ -2,7 +2,6 @@ import Task from './Task';
 
 const TaskList = ({tasks, deleteTask, changeTaskStatus}) => {
     const allTasks = tasks;
-
     const activeTasks = allTasks.filter(task => task.active === true)
         .map(task => <Task key={task.id} data={task} deleteTask={deleteTask} changeTaskStatus={changeTaskStatus}/>);
 
