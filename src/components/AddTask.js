@@ -27,7 +27,13 @@ const AddTask = ({addTask}) => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        addTask(e, taskText, isImportant, date, id);
+        
+        if (!taskText) {
+            alert('Wprowadź zadanie do wykonania');
+            return;
+        }
+        
+        addTask(taskText, isImportant, date, id);
         setTaskText('');
         setIsImportant('');
         setDate(minDate);

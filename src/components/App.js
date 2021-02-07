@@ -19,7 +19,7 @@ const App = () => {
 
   const [tasks, setTasks] = useState(exampleTasks);
 
-  const addTask = (e, taskText, isImportant, date, id) => {
+  const addTask = (taskText, isImportant, date, id) => {
     const newTask = {
       id, 
       text: taskText, 
