@@ -4,25 +4,26 @@ const Task = ({data, deleteTask, changeTaskStatus}) => {
 
     if (active) {
         return (
-            <p>
-                {text} - do <span>{date}</span>
-                <button id={id} onClick={(event) => changeTaskStatus(event)}>Zostało zrobione</button>
-                <button id={id} onClick={(event) => deleteTask(event)}>X</button>
-            </p>
+            <div className='task'>
+                <p className={important ? 'important' : null}>
+                    {text} - do <span>{date}</span>
+                    <button id={id} onClick={(event) => changeTaskStatus(event)}>Zostało zrobione</button>
+                    <button id={id} onClick={(event) => deleteTask(event)}>X</button>
+                </p>
+            </div>
         )
     }
     
 
     return (
-        <div>
+        <div className='task'>
             <p>
                 {text} (zrobić do: <span>{date}</span>)
                 <button id={id} onClick={(event) => deleteTask(event)}>X</button>
             </p>
             <p>
                 - zostało wykonane {finishDate}
-            </p>
-            
+            </p>            
         </div>
     );
 }

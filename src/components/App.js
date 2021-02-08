@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
 
+import '../sass/App.scss'
+
 const exampleTasks = [
   /* { id: 0, text: 'zagrać wreszcie w Wiedźmina 3', date: '2018-02-15', important: true, active: true, finishDate: null},
   { id: 1, text: "zrobić dobry uczynej", date: '2020-11-12', important: false, active: true, finishDate: null },
