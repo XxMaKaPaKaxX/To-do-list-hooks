@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
+import { getCalendaryFrame } from '../tools';
+
 const AddTask = ({addTask}) => {
-    
-    const minDate = (new Date()).toJSON().slice(0, 10);
-    const temp = minDate.split('-');
-    temp[0] = Number(temp[0]) + 1;
-    const maxDate = temp.join('-');
+
+    const [minDate, maxDate] = getCalendaryFrame();
 
     const [taskText, setTaskText] = useState('');
     const [isImportant, setIsImportant] = useState(false);
