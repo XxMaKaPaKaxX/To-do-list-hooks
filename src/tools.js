@@ -1,6 +1,6 @@
 export const sortTask = (tasklist) => {
     if (tasklist.length >= 2) {
-        tasklist.sort((a, b) => b.finishDate -a.finishDate);
+        tasklist.sort((a, b) => b.finishDate - a.finishDate);
     }
     return tasklist
 }

@@ -12,20 +12,23 @@ const Task = ({data, deleteTask, changeTaskStatus}) => {
                 </p>
             </div>
         )
+    } else {
+        const normalisedFinishDate = new Date(finishDate).toLocaleString();
+       return(
+            <div className='task'>
+                <p>
+                    {text} (zrobić do: <span>{date}</span>)
+                    <button id={id} onClick={(event) => deleteTask(event)}>X</button>
+                </p>
+                <p>
+                    - zostało wykonane {normalisedFinishDate}
+                </p>            
+            </div>
+        ); 
     }
     
 
-    return (
-        <div className='task'>
-            <p>
-                {text} (zrobić do: <span>{date}</span>)
-                <button id={id} onClick={(event) => deleteTask(event)}>X</button>
-            </p>
-            <p>
-                - zostało wykonane {finishDate}
-            </p>            
-        </div>
-    );
+    
 }
  
 export default Task;
