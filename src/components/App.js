@@ -6,7 +6,7 @@ import TaskList from './TaskList';
 import '../sass/App.scss'
 
 const exampleTasks = [
-  { id: 0, text: 'zagrać wreszcie w Wiedźmina 3', date: '2018-02-15', important: true, active: true, finishDate: null},
+  /* { id: 0, text: 'zagrać wreszcie w Wiedźmina 3', date: '2018-02-15', important: true, active: true, finishDate: null},
   { id: 1, text: "zrobić dobry uczynej", date: '2020-11-12', important: false, active: true, finishDate: null },
   { id: 2, text: "pomalować dom po sylwestrze", date: '2019-09-11', important: false, active: true, finishDate: null },
   { id: 3, text: "schudnąć 30 kilogramów", date: '2019-05-20', important: true, active: true, finishDate: null },
@@ -14,7 +14,7 @@ const exampleTasks = [
   { id: 5, text: "jeszcze raz pomalować dom", date: '2019-09-11', important: false, active: true, finishDate: null },
   { id: 6, text: "fryzjer!!!", date: '2019-05-20', important: true, active: true, finishDate: null },
   { id: 7, text: "nie odbierać poleconego od komornika", date: '2020-11-12', important: false, active: true, finishDate: null },
-  { id: 8, text: "kupić 2 butelki litrowe", date: '2019-09-11', important: false, active: true, finishDate: null },
+  { id: 8, text: "kupić 2 butelki litrowe", date: '2019-09-11', important: false, active: true, finishDate: null }, */
 ]
 
 const App = () => {
@@ -38,13 +38,12 @@ const App = () => {
     
   }
 
-  const deleteTask = (event) => {
-   
+  const deleteTask = (event) => {   
     /* if (!window.confirm(`napewno chcesz usunąć zadanie?`)) {
       return
     } */
 
-    const newTasks = tasks.filter(task => Number(event.target.id) !== task.id);
+    const newTasks = tasks.filter(task => Number(event.currentTarget.id) !== task.id);
     setTasks(newTasks);
 
   };
@@ -53,7 +52,7 @@ const App = () => {
     const finishDate = (new Date()).getTime();    
 
     const newTasks = tasks.map((task) => {
-      if (Number(event.target.id) === task.id) {
+      if (Number(event.currentTarget.id) === task.id) {
         task.active = !task.active;
         task.finishDate = finishDate;
       }
@@ -64,15 +63,15 @@ const App = () => {
   }
 
   return (
-    <>
-      Startujemy
+    <div className='app'>
+      <h1>Todo App</h1>
       <AddTask addTask={addTask}/>
       <TaskList 
         tasks={tasks} 
         deleteTask={deleteTask}
         changeTaskStatus={changeTaskStatus}
       />
-    </>
+    </div>
   );
 }
  

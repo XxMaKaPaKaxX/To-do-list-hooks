@@ -41,22 +41,15 @@ const AddTask = ({addTask}) => {
     
 
     return (
-        <div className="form">
+        <div className="add-task-form">
             <form>
                 <input 
                     type="text" 
-                    placeholder='dodaj zadanie' 
+                    placeholder='dodaj zadanie...' 
                     value={taskText}
                     onChange={(e) => handleAddTaskText(e)}
-                />                   
-                <input 
-                    type="checkbox" 
-                    checked={isImportant}
-                    onChange={handleChangeIsImportant}
-                    id="important"
-                />
-                <label htmlFor="important">priorytet</label>
-                <label htmlFor="dateToDo"></label>
+                    className='task-text'
+                />  
                 <input 
                     type="date" 
                     name="" 
@@ -65,8 +58,23 @@ const AddTask = ({addTask}) => {
                     max={maxDate}
                     value={date}
                     onChange={(e) => handleChangeDate(e)}
+                    className='task-date'
+
                 />
-                <button onClick={(e) => handleOnSubmit(e)}>Dodaj</button>            
+                <div className='task-important'>
+                    <input 
+                    type="checkbox" 
+                    checked={isImportant}
+                    onChange={handleChangeIsImportant}
+                    id="important"
+                    />
+                    <label htmlFor="important">
+                        <i className="fas fa-bolt"></i>
+                    </label>
+                </div>             
+                <button className='task-add-btn' onClick={(e) => handleOnSubmit(e)}>
+                    <i className="fas fa-plus"></i>
+                </button>            
             </form>
         </div>
     );

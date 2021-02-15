@@ -6,9 +6,13 @@ const Task = ({data, deleteTask, changeTaskStatus}) => {
         return (
             <div className='task'>
                 <p className={important ? 'important' : null}>
-                    {text} - do <span>{date}</span>
-                    <button id={id} onClick={(event) => changeTaskStatus(event)}>Zostało zrobione</button>
-                    <button id={id} onClick={(event) => deleteTask(event)}>X</button>
+                    <span className='task__description'>{text} - do <span>{date}</span></span>
+                    <button className='btn__done' id={id} onClick={(event) => changeTaskStatus(event)}>
+                        <i className="fas fa-check"></i>
+                    </button>
+                    <button className='btn__trash' id={id} onClick={(event) => deleteTask(event)}>
+                        <i className="fas fa-trash"></i>
+                    </button>
                 </p>
             </div>
         )
@@ -16,13 +20,15 @@ const Task = ({data, deleteTask, changeTaskStatus}) => {
         const normalisedFinishDate = new Date(finishDate).toLocaleString();
        return(
             <div className='task'>
-                <p>
-                    {text} (zrobić do: <span>{date}</span>)
-                    <button id={id} onClick={(event) => deleteTask(event)}>X</button>
+                <p className='task__description'>
+                    {text} (zrobić do: <span>{date}</span>)                   
                 </p>
-                <p>
+                <button className='btn__trash' id={id} onClick={(event) => deleteTask(event)}>
+                    <i className="fas fa-trash"></i>
+                </button> 
+                <p className='task__whenDone'>
                     - zostało wykonane {normalisedFinishDate}
-                </p>            
+                </p>                          
             </div>
         ); 
     }
