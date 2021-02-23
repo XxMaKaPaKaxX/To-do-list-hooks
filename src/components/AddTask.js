@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-
 import { getCalendaryFrame } from '../tools';
 
 const AddTask = ({addTask}) => {
 
     const [minDate, maxDate] = getCalendaryFrame();
-
     const [taskText, setTaskText] = useState('');
     const [isImportant, setIsImportant] = useState(false);
     const [date, setDate] = useState(minDate);
@@ -41,40 +39,44 @@ const AddTask = ({addTask}) => {
     
 
     return (
-        <div className="add-task-form">
+        <div className="form">
             <form>
-                <input 
-                    type="text" 
-                    placeholder='dodaj zadanie...' 
-                    value={taskText}
-                    onChange={(e) => handleAddTaskText(e)}
-                    className='task-text'
-                />  
-                <input 
-                    type="date" 
-                    name="" 
-                    id="dateToDo" 
-                    min={minDate} 
-                    max={maxDate}
-                    value={date}
-                    onChange={(e) => handleChangeDate(e)}
-                    className='task-date'
-
-                />
-                <div className='task-important'>
+                <div className="input-group my-3">
                     <input 
-                    type="checkbox" 
-                    checked={isImportant}
-                    onChange={handleChangeIsImportant}
-                    id="important"
+                        type="text" 
+                        placeholder='dodaj zadanie' 
+                        value={taskText}
+                        onChange={(e) => handleAddTaskText(e)}
+                        className="form-control"
                     />
-                    <label htmlFor="important">
-                        <i className="fas fa-bolt"></i>
-                    </label>
-                </div>             
-                <button className='task-add-btn' onClick={(e) => handleOnSubmit(e)}>
-                    <i className="fas fa-plus"></i>
-                </button>            
+                    <div className="input-group-text">
+                        <input 
+                            type="checkbox" 
+                            checked={isImportant}
+                            onChange={handleChangeIsImportant}
+                            id="important"
+                            className="form-check-input"                        
+                        />
+                        <label className="form-check-label mx-1" htmlFor="important">priorytet</label>
+                    </div> 
+                </div>
+                  
+                <div className="input-group my-3">
+                    <input 
+                        type="date" 
+                        name="" 
+                        id="dateToDo" 
+                        min={minDate} 
+                        max={maxDate}
+                        value={date}
+                        onChange={(e) => handleChangeDate(e)}
+                        className="form-control text-center"
+                    />
+
+                    <div className="input-group-text">
+                        <button className="btn  btn-outline-primary" onClick={(e) => handleOnSubmit(e)}>Dodaj</button>
+                    </div>                                   
+                </div>          
             </form>
         </div>
     );

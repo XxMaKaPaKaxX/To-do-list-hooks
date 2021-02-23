@@ -13,15 +13,15 @@ const TaskList = ({tasks, deleteTask, changeTaskStatus}) => {
         <div className="taskList">
             <div className="taskList__active">
                 <h2>Zadania do zrobienia: {activeTasks.length}</h2>
-                <ul>
+                <div>
                     {activeTasks}
-                </ul>
+                </div>
             </div>
             <div className="taskList__finished">
                 <h2>Zadania zrobione: {finishedTasks.length}</h2>
-                <ul>
+                <div>
                     {finishedTasks}
-                </ul>
+                </div>
             </div>
             
         </div>
