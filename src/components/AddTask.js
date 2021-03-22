@@ -35,8 +35,7 @@ const AddTask = ({addTask}) => {
         setIsImportant('');
         setDate(minDate);
         setId(prev => prev + 1)
-    }
-    
+    }    
 
     return (
         <div className="form">
